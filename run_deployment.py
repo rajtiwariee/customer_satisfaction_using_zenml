@@ -1,4 +1,4 @@
-# from typing import cast
+from typing import cast
 import click
 from pipelines.deployment_pipeline import continuous_deployment_pipeline
 from pipelines.deployment_pipeline import inference_pipeline
@@ -41,10 +41,10 @@ def main(config: str, min_accuracy: float):
     if deploy:
         # Initialize a continuous deployment pipeline run
         continuous_deployment_pipeline(
-            data_path = 'X:\Projects_ML_DL_LLM\Customer_Satisfaction\data\olist_customers_dataset.csv',
+            data_path = 'data/olist_customers_dataset.csv',
             min_accuracy=min_accuracy,
-            workers=3,
-            timeout=60,
+            workers=4,
+            timeout=200,
         )
 
     if predict:
